@@ -1,14 +1,24 @@
 // --- Language Toggling Logic ---
 function getCookie(name) {
-  const value = `; ${document.cookie}`;
-  const parts = value.split(`; ${name}=`);
-  if (parts.length === 2) return parts.pop().split(';').shift();
+  const nameEQ = name + "=";
+  const ca = document.cookie.split(';');
+  for (let i = 0; i < ca.length; i++) {
+    let c = ca[i];
+    while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+    if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+  }
   return null;
 }
 
 function setCookie(name, value) {
-  document.cookie = `${name}=${value}; path=/`;
-  document.cookie = `${name}=${value}; domain=.${location.hostname}; path=/`;
+  const expires = "; expires=Thu, 01 Jan 1970 00:00:00 UTC"; // Used for clearing
+  if (value === "") {
+    document.cookie = name + "=" + value + expires + "; path=/";
+    document.cookie = name + "=" + value + expires + "; path=/; domain=." + location.hostname;
+  } else {
+    document.cookie = name + "=" + value + "; path=/";
+    document.cookie = name + "=" + value + "; path=/; domain=." + location.hostname;
+  }
 }
 
 function applyLanguage(lang) {
@@ -24,19 +34,21 @@ function applyLanguage(lang) {
 
 function toggleLanguage() {
   const currentCookie = getCookie('googtrans');
-  let targetLang = 'ar';
   
-  if (currentCookie === '/en/ar') {
-    targetLang = 'en';
+  if (currentCookie && currentCookie.includes('/ar')) {
+    // Switch back to English by clearing the cookie
+    setCookie('googtrans', '');
+  } else {
+    // Switch to Arabic
+    setCookie('googtrans', '/en/ar');
   }
   
-  setCookie('googtrans', `/en/${targetLang}`);
   location.reload();
 }
 
 document.addEventListener('DOMContentLoaded', () => {
   const currentCookie = getCookie('googtrans');
-  if (currentCookie === '/en/ar') {
+  if (currentCookie && currentCookie.includes('/ar')) {
     applyLanguage('ar');
   } else {
     applyLanguage('en');
