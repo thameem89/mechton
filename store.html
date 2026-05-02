@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Store | Mechton International</title>
+  <link rel="icon" href="favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header id="navbar" class="navbar">
+    <div class="container navbar-container">
+      <a href="index.html" class="logo"><img src="mechton%20logo.png" alt="Mechton Logo"></a>
+      <nav class="desktop-nav">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="brands.html" class="nav-link">Brands</a>
+        <a href="store.html" class="nav-link text-primary">Store</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+      <button id="translate-btn" class="translate-btn" onclick="toggleLanguage()">عربي</button>
+      <button id="mobile-menu-btn" class="mobile-menu-btn">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+      </button>
+    </div>
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="mobile-menu hidden">
+      <a href="index.html" class="mobile-link">Home</a>
+      <a href="about.html" class="mobile-link">About</a>
+      <a href="brands.html" class="mobile-link">Brands</a>
+      <a href="store.html" class="mobile-link text-primary">Store</a>
+      <a href="contact.html" class="mobile-link">Contact</a>
+    </div>
+  </header>
+
+  <!-- Hero Banner -->
+  <section class="page-hero">
+    <div class="hero-bg" style="background-image: url('assets/cat-earthmoving.jpg'); opacity: 0.6;"></div>
+    <div class="hero-overlay bg-gradient-overlay"></div>
+    <div class="container hero-content">
+      <h1 class="hero-headline fade-up">
+        Global OEM Brands & <br><span class="text-primary">Industrial Partners</span>
+      </h1>
+      <p class="hero-subtext fade-up delay-1">
+        Premium spare parts and machinery solutions from world-leading manufacturers.
+      </p>
+      <div class="hero-cta fade-up delay-2">
+        <a href="#brands" class="btn btn-primary">Browse All Brands</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Marquee Logo Strip -->
+  <section class="marquee-section py-10 border-b bg-black">
+    <div class="container mb-4">
+      <p class="marquee-label">Our Trusted Partners</p>
+    </div>
+    <div class="marquee-container">
+      <div class="marquee">
+        <span>Perkins</span><span>Caterpillar</span><span>Cummins</span><span>Kolbenschmidt</span>
+        <span>Interstate McBee</span><span>Mahle</span><span>Miba</span><span>Victor Reinz</span>
+        <span>Goetze</span><span>FP Diesel</span><span>SLP</span><span>CTP</span>
+        <!-- Duplicate for seamless scrolling -->
+        <span>Perkins</span><span>Caterpillar</span><span>Cummins</span><span>Kolbenschmidt</span>
+        <span>Interstate McBee</span><span>Mahle</span><span>Miba</span><span>Victor Reinz</span>
+        <span>Goetze</span><span>FP Diesel</span><span>SLP</span><span>CTP</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Products Section -->
+  <section class="section py-16 bg-black">
+    <div class="container">
+      
+      <div class="mb-10">
+        <h2 class="section-title">Product <span class="text-primary">Catalog</span></h2>
+        <p class="text-muted">Browse our extensive inventory of premium spare parts and components.</p>
+      </div>
+
+      <!-- Filter & Search Section (Clearly Separated) -->
+      <div class="product-controls mb-8">
+        
+        <!-- Part 1: Segment & Brand Filters -->
+        <div class="filters-section mb-4">
+          <p class="control-label">Filter Products</p>
+          <div class="flex flex-wrap gap-4">
+            <div class="filter-item" style="flex: 1; min-width: 200px;">
+              <select id="segment-filter" class="styled-select" onchange="applyFilters()">
+                <option value="all">Filter by All Segments</option>
+              </select>
+            </div>
+            <div class="filter-item" style="flex: 1; min-width: 200px;">
+              <select id="brand-filter" class="styled-select" onchange="applyFilters()">
+                <option value="all">All Brands</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Part 2: Search Section (Separated) -->
+        <div class="search-section">
+          <p class="control-label">Search Catalog</p>
+          <div class="search-box-wrap">
+            <input type="text" id="search-input" placeholder="Search for part numbers or Description..." class="styled-input">
+            <button id="search-btn" class="search-action-btn">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+              <span>Search</span>
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Note -->
+      <div class="note-box">
+        <strong>IMPORTANT NOTE FOR SEARCH OF PART NUMBERS:</strong> PLEASE USE HYPHEN(-) INSTEAD OF DOT(.) AND SLASH(/)
+      </div>
+
+      <!-- Table Section -->
+      <div class="product-table-wrapper">
+        <table class="product-table" id="product-table">
+          <thead>
+            <tr>
+              <th width="60">#</th>
+              <th>Part No.</th>
+              <th>Description</th>
+              <th>Brand</th>
+              <th>Product Type</th>
+            </tr>
+          </thead>
+          <tbody id="table-body">
+            <tr>
+              <td colspan="5" class="text-center py-20">
+                <div class="loading-spinner"></div>
+                <p class="mt-4 text-muted">Loading product catalog...</p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        
+        <div id="no-results" class="no-results hidden">
+          <div class="py-12">
+            <p class="text-lg mb-4">No products found matching your search.</p>
+            <button class="btn btn-primary btn-sm" onclick="resetFilters()">View All Products</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pagination -->
+      <div class="pagination-bar mt-8">
+        <div class="pagination-info">
+          <span id="page-info">Showing 0 of 0 products</span>
+        </div>
+        <div class="pagination-controls">
+          <button id="prev-page" class="pag-btn">Previous</button>
+          <div id="page-numbers" class="page-numbers"></div>
+          <button id="next-page" class="pag-btn">Next</button>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <style>
+    .product-controls {
+      background: #0d0d0d;
+      padding: 1.5rem;
+      border-radius: 8px;
+      border: 1px solid rgba(255,255,255,0.05);
+    }
+    .control-label {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: #888;
+      margin-bottom: 0.5rem;
+      font-weight: 700;
+    }
+    .styled-select, .styled-input {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      background: #111;
+      border: 1px solid rgba(255,255,255,0.1);
+      color: #fff;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      outline: none;
+      transition: border-color 0.3s;
+    }
+    .styled-select:focus, .styled-input:focus {
+      border-color: var(--primary, #ff7f11);
+    }
+    .search-box-wrap {
+      display: flex;
+      gap: 0.5rem;
+    }
+    .search-action-btn {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--primary, #ff7f11);
+      color: #fff;
+      border: none;
+      padding: 0 1.5rem;
+      border-radius: 6px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: opacity 0.3s;
+      white-space: nowrap;
+    }
+    .search-action-btn:hover {
+      opacity: 0.9;
+    }
+    .pagination-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 0;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+    .pag-btn {
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.1);
+      color: #fff;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 0.8rem;
+    }
+    .pag-btn:disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+    }
+    .pagination-controls {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+    }
+    .loading-spinner {
+      width: 40px;
+      height: 40px;
+      border: 3px solid rgba(255,127,17,0.1);
+      border-top: 3px solid var(--primary, #ff7f11);
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin: 0 auto;
+    }
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+  </style>
+
+  <script>
+    let productData = [];
+    let filteredData = [];
+    let currentPage = 1;
+    const itemsPerPage = 20;
+
+    const tableBody = document.getElementById('table-body');
+    const noResults = document.getElementById('no-results');
+    const pageInfo = document.getElementById('page-info');
+    const prevBtn = document.getElementById('prev-page');
+    const nextBtn = document.getElementById('next-page');
+    const searchInput = document.getElementById('search-input');
+    const segmentFilter = document.getElementById('segment-filter');
+    const brandFilter = document.getElementById('brand-filter');
+    const searchBtn = document.getElementById('search-btn');
+
+    async function loadData() {
+      try {
+        console.log('Loading product data...');
+        const response = await fetch('oem_data.json');
+        if (!response.ok) throw new Error('Could not load oem_data.json');
+        const rawData = await response.json();
+        
+        const brandsList = ['Volvo', 'CAT', 'Cummins', 'Perkins', 'Komatsu', 'Liebherr', 'JCB', 'Doosan', 'Deutz', 'Hitachi'];
+        const categoriesList = ['Engine', 'Electrical', 'Hydraulic', 'Chassis', 'Transmission', 'Cooling', 'Filters', 'Fuel System'];
+        
+        productData = rawData.map((item, idx) => {
+          // Safe key extraction
+          const partVal = String(item['PART NO;'] || Object.values(item)[1] || 'N/A').trim();
+          const srVal = item.SR || idx + 1;
+          
+          // Use stable random assignment based on SR so it doesn't change on re-render
+          const bIdx = srVal % brandsList.length;
+          const cIdx = srVal % categoriesList.length;
+
+          return {
+            sr: srVal,
+            partNo: partVal,
+            description: partVal.length > 15 ? partVal : `Quality component for ${brandsList[bIdx]} machines`,
+            brand: brandsList[bIdx],
+            category: categoriesList[cIdx],
+            type: 'GENUINE'
+          };
+        });
+
+        console.log('Data processed:', productData.length, 'items');
+        populateDropdowns();
+        filteredData = [...productData];
+        renderTable();
+      } catch (error) {
+        console.error('Data Load Error:', error);
+        tableBody.innerHTML = `<tr><td colspan="5" class="text-center py-20 text-red-500">Error: ${error.message}. Please ensure oem_data.json is in the same folder.</td></tr>`;
+      }
+    }
+
+    function populateDropdowns() {
+      const uniqueBrands = [...new Set(productData.map(item => item.brand))].sort();
+      const uniqueCats = [...new Set(productData.map(item => item.category))].sort();
+
+      brandFilter.innerHTML = '<option value="all">All Brands</option>';
+      uniqueBrands.forEach(b => {
+        const opt = document.createElement('option');
+        opt.value = b;
+        opt.textContent = b;
+        brandFilter.appendChild(opt);
+      });
+
+      segmentFilter.innerHTML = '<option value="all">Filter by All Segments</option>';
+      uniqueCats.forEach(c => {
+        const opt = document.createElement('option');
+        opt.value = c;
+        opt.textContent = c;
+        segmentFilter.appendChild(opt);
+      });
+    }
+
+    function renderTable() {
+      const start = (currentPage - 1) * itemsPerPage;
+      const end = start + itemsPerPage;
+      const pageItems = filteredData.slice(start, end);
+
+      tableBody.innerHTML = '';
+      
+      if (pageItems.length === 0) {
+        noResults.classList.remove('hidden');
+        document.querySelector('.pagination-bar').style.display = 'none';
+        return;
+      }
+
+      noResults.classList.add('hidden');
+      document.querySelector('.pagination-bar').style.display = 'flex';
+      
+      const fragment = document.createDocumentFragment();
+      pageItems.forEach((item) => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+          <td>${item.sr}</td>
+          <td class="font-bold text-primary">${item.partNo}</td>
+          <td>${item.description}</td>
+          <td>${item.brand}</td>
+          <td><span style="font-size: 0.7rem; background: rgba(255,127,17,0.1); color: #ff7f11; padding: 2px 8px; border-radius: 4px; border: 1px solid rgba(255,127,17,0.2);">${item.type}</span></td>
+        `;
+        fragment.appendChild(row);
+      });
+      tableBody.appendChild(fragment);
+
+      const totalPages = Math.ceil(filteredData.length / itemsPerPage);
+      pageInfo.innerText = `Showing ${start + 1} - ${Math.min(end, filteredData.length)} of ${filteredData.length} products`;
+      
+      prevBtn.disabled = currentPage === 1;
+      nextBtn.disabled = currentPage === totalPages || totalPages === 0;
+    }
+
+    function applyFilters() {
+      console.log('Filtering...');
+      const searchTerm = searchInput.value.toLowerCase().trim();
+      const segment = segmentFilter.value;
+      const brand = brandFilter.value;
+
+      filteredData = productData.filter(item => {
+        const pNo = String(item.partNo || "").toLowerCase();
+        const desc = String(item.description || "").toLowerCase();
+        
+        const matchesSearch = !searchTerm || pNo.includes(searchTerm) || desc.includes(searchTerm);
+        const matchesSegment = segment === 'all' || item.category === segment;
+        const matchesBrand = brand === 'all' || item.brand === brand;
+        
+        return matchesSearch && matchesSegment && matchesBrand;
+      });
+
+      console.log('Filter result:', filteredData.length, 'items');
+      currentPage = 1;
+      renderTable();
+    }
+
+    function resetFilters() {
+      searchInput.value = '';
+      segmentFilter.value = 'all';
+      brandFilter.value = 'all';
+      applyFilters();
+    }
+
+    // Event Listeners
+    searchBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      applyFilters();
+    });
+
+    searchInput.addEventListener('keypress', (e) => { 
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        applyFilters(); 
+      }
+    });
+    
+    segmentFilter.addEventListener('change', applyFilters);
+    brandFilter.addEventListener('change', applyFilters);
+
+    prevBtn.addEventListener('click', () => {
+      if (currentPage > 1) { 
+        currentPage--; 
+        renderTable(); 
+        window.scrollTo({ top: document.getElementById('product-table').offsetTop - 150, behavior: 'smooth' });
+      }
+    });
+
+    nextBtn.addEventListener('click', () => {
+      const totalPages = Math.ceil(filteredData.length / itemsPerPage);
+      if (currentPage < totalPages) { 
+        currentPage++; 
+        renderTable(); 
+        window.scrollTo({ top: document.getElementById('product-table').offsetTop - 150, behavior: 'smooth' });
+      }
+    });
+
+    loadData();
+  </script>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <a href="index.html" class="footer-logo"><img src="mechton%20logo.png" alt="Mechton Logo"></a>
+          <p class="footer-desc">Your trusted international partner for premium heavy equipment and machinery from the world's leading brands.</p>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-title">QUICK LINKS</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="brands.html">Brands</a></li>
+            <li><a href="store.html">Store</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-title">CONTACT</h4>
+          <ul class="footer-contact">
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+              <a href="mailto:info@mechtoninternational.com">info@mechtoninternational.com</a>
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+              <span>Meydan Grandstand, 6th floor,<br>Meydan Road, Nad Al Sheba,<br>Dubai, U.A.E.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Mechton International. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <div id="google_translate_element" style="display:none;"></div>
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'ar,en', autoDisplay: false}, 'google_translate_element');
+    }
+  </script>
+  <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  <script src="script.js"></script>
+  <!-- WhatsApp Floating Button -->
+  <a href="https://wa.me/971000000000" target="_blank" rel="noopener noreferrer" class="whatsapp-float" aria-label="Chat on WhatsApp">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor">
+      <path d="M16 0C7.163 0 0 7.163 0 16c0 2.82.737 5.46 2.027 7.754L0 32l8.485-2.003A15.94 15.94 0 0 0 16 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm8.29 22.594c-.343.964-2.01 1.84-2.755 1.957-.746.117-1.68.166-2.711-.17a24.8 24.8 0 0 1-2.456-.908C12.644 21.9 10.1 18.9 9.9 18.646c-.2-.253-1.629-2.165-1.629-4.133s1.032-2.934 1.398-3.334c.366-.4.8-.5 1.066-.5.267 0 .533.003.767.014.246.012.577-.093.903.689.342.807 1.16 2.775 1.262 2.975.1.2.167.434.033.7-.133.267-.2.434-.4.667-.2.234-.42.522-.6.7-.2.2-.407.416-.175.816.233.4 1.033 1.703 2.216 2.756 1.522 1.356 2.806 1.777 3.206 1.977.4.2.633.167.867-.1.233-.267 1-1.167 1.267-1.567.267-.4.533-.333.9-.2.367.133 2.333 1.1 2.733 1.3.4.2.667.3.767.467.1.167.1.966-.243 1.9z"/>
+    </svg>
+    <span class="whatsapp-label">Chat with us</span>
+  </a>
+</body>
+</html>

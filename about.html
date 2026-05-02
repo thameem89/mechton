@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About | Mechton International</title>
+  <link rel="icon" href="favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header id="navbar" class="navbar">
+    <div class="container navbar-container">
+      <a href="index.html" class="logo"><img src="mechton%20logo.png" alt="Mechton Logo"></a>
+      <nav class="desktop-nav">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link text-primary">About</a>
+        <a href="brands.html" class="nav-link">Brands</a>
+        <a href="store.html" class="nav-link">Store</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+      <button id="translate-btn" class="translate-btn" onclick="toggleLanguage()">عربي</button>
+      <button id="mobile-menu-btn" class="mobile-menu-btn">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+      </button>
+    </div>
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="mobile-menu hidden">
+      <a href="index.html" class="mobile-link">Home</a>
+      <a href="about.html" class="mobile-link text-primary">About</a>
+      <a href="brands.html" class="mobile-link">Brands</a>
+      <a href="store.html" class="mobile-link">Store</a>
+      <a href="contact.html" class="mobile-link">Contact</a>
+    </div>
+  </header>
+
+  <!-- Hero Banner -->
+  <section class="page-hero">
+    <div class="hero-bg" style="background-image: url('assets/factory.jpg'); opacity: 0.5;"></div>
+    <div class="hero-overlay bg-gradient-overlay"></div>
+    <div class="container hero-content">
+      <h1 class="hero-headline fade-up">
+        About <br><span class="text-primary">Mechton International</span>
+      </h1>
+      <p class="hero-subtext fade-up delay-1">
+        Leading global supplier of heavy equipment, machinery parts, and premium industrial solutions.
+      </p>
+      <div class="hero-cta fade-up delay-2">
+        <a href="store.html" class="btn btn-primary">Explore Our Products</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Story -->
+  <section class="section py-24">
+    <div class="container">
+      <div class="story-grid">
+        <div class="story-image">
+          <img src="assets/engineers.jpeg" alt="Our Story - Engineers working on an engine">
+        </div>
+        <div class="story-content">
+          <h2 class="section-title border-left">Our Story</h2>
+          <div class="story-text">
+            <p><strong>Mechton International L.L.C-FZ</strong> is a global leader in heavy machinery solutions and premium OEM parts distribution. Established in 2025, we bring world-class products from trusted global manufacturers to industrial markets across the world.</p>
+            <p>We are committed to delivering reliable, high-performance equipment and parts that help grow your business. Our expertise in sourcing, logistics, and product knowledge ensures that our clients receive the right solutions, every time.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mission, Vision & Values -->
+  <section class="section py-24 bg-dark border-top">
+    <div class="container">
+      <div class="mission-grid">
+        <div class="mission-card group">
+          <div class="mission-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg>
+          </div>
+          <h3 class="mission-title">Our Mission</h3>
+          <p class="mission-desc">To empower industries with reliable machinery and world-class product solutions from global OEM partners.</p>
+        </div>
+        <div class="mission-card group">
+          <div class="mission-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"/><circle cx="12" cy="12" r="3"/></svg>
+          </div>
+          <h3 class="mission-title">Our Vision</h3>
+          <p class="mission-desc">To be the most trusted international supplier in heavy equipment parts and industrial solutions.</p>
+        </div>
+        <div class="mission-card group">
+          <div class="mission-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <h3 class="mission-title">Core Values</h3>
+          <ul class="values-list">
+            <li>Customer Focus</li>
+            <li>Quality Assurance</li>
+            <li>Integrity & Transparency</li>
+            <li>Innovation</li>
+            <li>Global Partnership</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Global Footprint -->
+  <section class="section py-24 bg-black border-y pattern-grid relative">
+    <div class="container relative z-10" id="stats">
+      <div class="footprint-grid">
+        <div class="footprint-stat text-center">
+          <svg class="footprint-icon" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+          <div class="stat-number"><span class="count-up" data-target="20">0</span><span class="text-primary">+</span></div>
+          <p class="footprint-label">Countries Served</p>
+        </div>
+        <div class="footprint-stat text-center">
+          <svg class="footprint-icon" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          <div class="stat-number"><span class="count-up" data-target="500">0</span><span class="text-primary">+</span></div>
+          <p class="footprint-label">Global Clients</p>
+        </div>
+        <div class="footprint-stat text-center">
+          <svg class="footprint-icon" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m7.5 4.27 9 5.15"/><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/></svg>
+          <div class="stat-number"><span class="count-up" data-target="1000">0</span><span class="text-primary">+</span></div>
+          <p class="footprint-label">Successful Deliveries</p>
+        </div>
+        <div class="footprint-stat text-center">
+          <svg class="footprint-icon" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/><polyline points="16 7 22 7 22 13"/></svg>
+          <div class="stat-number"><span class="count-up" data-target="25">0</span><span class="text-primary">+</span></div>
+          <p class="footprint-label">Brand Partners</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="section py-24 bg-gradient-cta">
+    <div class="container text-center">
+      <h2 class="cta-title">Ready to partner with <br><span class="text-primary">Mechton International?</span></h2>
+      <a href="contact.html" class="btn btn-primary mt-8">Request a Quote</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <a href="index.html" class="footer-logo"><img src="mechton%20logo.png" alt="Mechton Logo"></a>
+          <p class="footer-desc">Your trusted international partner for premium heavy equipment and machinery from the world's leading brands.</p>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-title">QUICK LINKS</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="brands.html">Brands</a></li>
+            <li><a href="store.html">Store</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-title">CONTACT</h4>
+          <ul class="footer-contact">
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+              <a href="mailto:info@mechtoninternational.com">info@mechtoninternational.com</a>
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+              <span>Meydan Grandstand, 6th floor,<br>Meydan Road, Nad Al Sheba,<br>Dubai, U.A.E.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Mechton International. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <div id="google_translate_element" style="display:none;"></div>
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'ar,en', autoDisplay: false}, 'google_translate_element');
+    }
+  </script>
+  <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  <script src="script.js"></script>
+  <!-- WhatsApp Floating Button -->
+  <a href="https://wa.me/971000000000" target="_blank" rel="noopener noreferrer" class="whatsapp-float" aria-label="Chat on WhatsApp">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor">
+      <path d="M16 0C7.163 0 0 7.163 0 16c0 2.82.737 5.46 2.027 7.754L0 32l8.485-2.003A15.94 15.94 0 0 0 16 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm8.29 22.594c-.343.964-2.01 1.84-2.755 1.957-.746.117-1.68.166-2.711-.17a24.8 24.8 0 0 1-2.456-.908C12.644 21.9 10.1 18.9 9.9 18.646c-.2-.253-1.629-2.165-1.629-4.133s1.032-2.934 1.398-3.334c.366-.4.8-.5 1.066-.5.267 0 .533.003.767.014.246.012.577-.093.903.689.342.807 1.16 2.775 1.262 2.975.1.2.167.434.033.7-.133.267-.2.434-.4.667-.2.234-.42.522-.6.7-.2.2-.407.416-.175.816.233.4 1.033 1.703 2.216 2.756 1.522 1.356 2.806 1.777 3.206 1.977.4.2.633.167.867-.1.233-.267 1-1.167 1.267-1.567.267-.4.533-.333.9-.2.367.133 2.333 1.1 2.733 1.3.4.2.667.3.767.467.1.167.1.966-.243 1.9z"/>
+    </svg>
+    <span class="whatsapp-label">Chat with us</span>
+  </a>
+</body>
+</html>

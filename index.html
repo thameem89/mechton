@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mechton International | Premium Heavy Equipment</title>
+  <meta name="description" content="Global supplier of heavy equipment, machinery parts, and premium industrial solutions.">
+  <link rel="icon" href="favicon.ico">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header id="navbar" class="navbar">
+    <div class="container navbar-container">
+      <a href="index.html" class="logo"><img src="mechton%20logo.png" alt="Mechton Logo"></a>
+      
+      <nav class="desktop-nav">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="brands.html" class="nav-link">Brands</a>
+        <a href="store.html" class="nav-link">Store</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <button id="translate-btn" class="translate-btn" onclick="toggleLanguage()">عربي</button>
+
+      <button id="mobile-menu-btn" class="mobile-menu-btn">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <line x1="4" x2="20" y1="12" y2="12"/>
+          <line x1="4" x2="20" y1="6" y2="6"/>
+          <line x1="4" x2="20" y1="18" y2="18"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="mobile-menu hidden">
+      <a href="index.html" class="mobile-link">Home</a>
+      <a href="about.html" class="mobile-link">About</a>
+      <a href="brands.html" class="mobile-link">Brands</a>
+      <a href="store.html" class="mobile-link">Store</a>
+      <a href="contact.html" class="mobile-link">Contact</a>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section id="hero" class="hero">
+    <div class="hero-bg" style="background-image: url('assets/hero-bg.jpg')"></div>
+    <div class="hero-overlay"></div>
+    
+    <div class="container hero-content">
+      <div class="hero-text-wrapper">
+        <div class="badge mobile-only">
+          <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" stroke="none" class="icon-pulse text-primary">
+            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+          </svg>
+          <span>Global Heavy Equipment</span>
+        </div>
+        
+        <h1 class="hero-headline fade-up">
+          Powering Industries.<br><span class="text-primary">Global Reach.</span>
+        </h1>
+        
+        <p class="hero-subtext fade-up delay-1">
+          The international premium seller of heavy equipment & machinery with product solutions from top-notch brands all over the world.
+        </p>
+        
+        <div class="hero-cta fade-up delay-2">
+          <a href="store.html" class="btn btn-primary">Explore Products</a>
+          <a href="contact.html" class="btn btn-outline">Request Quote</a>
+        </div>
+      </div>
+    </div>
+    <div class="hero-bottom-gradient"></div>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-image">
+          <img src="assets/factory.jpg" alt="Mechton Factory">
+          <div class="badge-float mobile-only">
+            <span>Est. 2009</span>
+          </div>
+          <div class="corner-accent mobile-only"></div>
+        </div>
+        <div class="about-text">
+          <p class="section-label">About Us</p>
+          <h2 class="section-title">Your Trusted Partner in Heavy Equipment</h2>
+          <p class="section-desc">Mechton International is a premium global seller of heavy equipment and industrial machinery. We bring you product solutions from the world's most trusted brands — ensuring performance, durability, and reliability for every project.</p>
+          <p class="section-desc">From excavators and loaders to cranes and power generators, we are your one-stop destination for high-functioning machinery that helps your industry grow and thrive on the global stage.</p>
+        </div>
+      </div>
+
+      <div class="stats-grid" id="stats">
+        <div class="stat-card">
+          <div class="stat-number"><span class="count-up" data-target="15">0</span><span class="text-primary">+</span></div>
+          <p class="stat-label">Years Experience</p>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number"><span class="count-up" data-target="500">0</span><span class="text-primary">+</span></div>
+          <p class="stat-label">Machines Delivered</p>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number"><span class="count-up" data-target="20">0</span><span class="text-primary">+</span></div>
+          <p class="stat-label">Countries Served</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Products Section -->
+  <section id="products" class="products">
+    <div class="blueprint-bg"></div>
+    <div class="container">
+      <div class="products-header">
+        <div>
+          <div class="section-label flex-align">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-pulse text-primary"><path d="M3 7V5a2 2 0 0 1 2-2h2"/><path d="M17 3h2a2 2 0 0 1 2 2v2"/><path d="M21 17v2a2 2 0 0 1-2 2h-2"/><path d="M7 21H5a2 2 0 0 1-2-2v-2"/></svg>
+            <span style="margin-left:8px;">Our Products</span>
+          </div>
+          <h2 class="section-title">Product <span class="categories-gradient">Categories</span></h2>
+        </div>
+        <div class="carousel-nav">
+          <button id="prev-btn" class="nav-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+          </button>
+          <button id="next-btn" class="nav-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="carousel">
+        <div class="carousel-track" id="carousel-track">
+          <!-- Product Cards -->
+          <div class="product-card">
+            <div class="card-corner top-right"></div><div class="card-corner bottom-left"></div>
+            <div class="product-image-wrapper">
+              <div class="scanner"></div>
+              <img src="assets/cat-generator.jpg" alt="Generator Parts" class="product-img">
+            </div>
+            <div class="product-info">
+              <h3 class="product-name">Generator Parts</h3>
+              <div class="product-divider"></div>
+              <p class="product-desc">Spare parts for generators and power solutions.</p>
+              <div class="product-explore">
+                <span>Explore</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <div class="card-corner top-right"></div><div class="card-corner bottom-left"></div>
+            <div class="product-image-wrapper">
+              <div class="scanner"></div>
+              <img src="assets/cat-engine.jpg" alt="Engine Parts" class="product-img">
+            </div>
+            <div class="product-info">
+              <h3 class="product-name">Engine Parts</h3>
+              <div class="product-divider"></div>
+              <p class="product-desc">Diesel engine components and accessories.</p>
+              <div class="product-explore">
+                <span>Explore</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <div class="card-corner top-right"></div><div class="card-corner bottom-left"></div>
+            <div class="product-image-wrapper">
+              <div class="scanner"></div>
+              <img src="assets/cat-earthmoving.jpg" alt="Earthmoving Parts" class="product-img">
+            </div>
+            <div class="product-info">
+              <h3 class="product-name">Earthmoving Parts</h3>
+              <div class="product-divider"></div>
+              <p class="product-desc">Heavy earthmoving equipment parts.</p>
+              <div class="product-explore">
+                <span>Explore</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <div class="card-corner top-right"></div><div class="card-corner bottom-left"></div>
+            <div class="product-image-wrapper">
+              <div class="scanner"></div>
+              <img src="assets/cat-undercarriage.jpg" alt="Undercarriage" class="product-img">
+            </div>
+            <div class="product-info">
+              <h3 class="product-name">Undercarriage</h3>
+              <div class="product-divider"></div>
+              <p class="product-desc">Tracks, rollers, idlers, sprockets and more.</p>
+              <div class="product-explore">
+                <span>Explore</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+              </div>
+            </div>
+          </div>
+
+          <div class="product-card">
+            <div class="card-corner top-right"></div><div class="card-corner bottom-left"></div>
+            <div class="product-image-wrapper">
+              <div class="scanner"></div>
+              <img src="assets/cat-get.jpg" alt="G.E.T. Tools" class="product-img">
+            </div>
+            <div class="product-info">
+              <h3 class="product-name">G.E.T. Tools</h3>
+              <div class="product-divider"></div>
+              <p class="product-desc">Buckets, teeth, tips, adapters and edges.</p>
+              <div class="product-explore">
+                <span>Explore</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Us Section -->
+  <section id="why-us" class="why-us">
+    <div class="container">
+      <div class="text-center mb-16">
+        <p class="section-label">Why Choose Us</p>
+        <h2 class="section-title">The Mechton Advantage</h2>
+      </div>
+      <div class="why-grid">
+        <div class="why-card">
+          <div class="why-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></svg>
+          </div>
+          <h3 class="why-title">Top Brand Partners</h3>
+          <p class="why-desc">We source exclusively from the world's most trusted heavy equipment manufacturers.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
+          </div>
+          <h3 class="why-title">Certified Quality</h3>
+          <p class="why-desc">Every machine meets rigorous international quality and safety certifications.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>
+          </div>
+          <h3 class="why-title">Global Delivery</h3>
+          <p class="why-desc">Seamless logistics and delivery to 20+ countries across 5 continents.</p>
+        </div>
+        <div class="why-card">
+          <div class="why-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+          </div>
+          <h3 class="why-title">After-Sales Support</h3>
+          <p class="why-desc">Comprehensive service, spare parts, and technical support for every machine we sell.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Industries Section -->
+  <section id="industries" class="industries">
+    <div class="container">
+      <div class="text-center mb-16">
+        <p class="section-label">Sectors</p>
+        <h2 class="section-title">Industries We Serve</h2>
+      </div>
+      <div class="industries-grid">
+        <div class="industry-card">
+          <div class="industry-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2" ry="2"/><path d="M9 22v-4h6v4"/><path d="M8 6h.01"/><path d="M16 6h.01"/><path d="M12 6h.01"/><path d="M12 10h.01"/><path d="M12 14h.01"/><path d="M16 10h.01"/><path d="M16 14h.01"/><path d="M8 10h.01"/><path d="M8 14h.01"/></svg>
+          </div>
+          <span class="industry-name">Construction</span>
+        </div>
+        <div class="industry-card">
+          <div class="industry-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.531 12.469 6.619 20.38a1 1 0 1 1-3-3l7.912-7.912"/><path d="M15.686 4.314A1.25 1.25 0 0 0 15.433 2h-2.11a1 1 0 0 0-.858.487L9.8 7.449a1 1 0 0 0 .346 1.341l4.065 2.348a1 1 0 0 0 1.341-.346l4.962-2.665a1 1 0 0 0 .487-.858v-2.11a1.25 1.25 0 0 0-2.314-.943L15.686 4.314z"/></svg>
+          </div>
+          <span class="industry-name">Mining</span>
+        </div>
+        <div class="industry-card">
+          <div class="industry-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 16.3c2.2 0 4-1.83 4-4.05 0-1.16-.57-2.26-1.71-3.19S7 2.99 7 2.99s-2.29 4.39-3.29 5.06S2 11.08 2 12.25c0 2.22 1.8 4.05 4 4.05z"/><path d="M12.56 6.6A10.97 10.97 0 0 0 14 3.02c.5 2.5 2 4.9 4 6.5s3 3.5 3 5.5a6.98 6.98 0 0 1-11.91 4.97"/></svg>
+          </div>
+          <span class="industry-name">Oil &amp; Gas</span>
+        </div>
+        <div class="industry-card">
+          <div class="industry-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          </div>
+          <span class="industry-name">Power &amp; Energy</span>
+        </div>
+        <div class="industry-card">
+          <div class="industry-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 21c.6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1 .6.5 1.2 1 2.5 1 2.5 0 2.5-2 5-2 1.3 0 1.9.5 2.5 1"/><path d="M19.38 20A11.6 11.6 0 0 0 21 14l-9-4-9 4c0 2.9.94 5.34 2.81 7.76"/><path d="M19 13V7a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v6"/><path d="M12 10v4"/><path d="M12 2v3"/></svg>
+          </div>
+          <span class="industry-name">Marine &amp; Ports</span>
+        </div>
+        <div class="industry-card">
+          <div class="industry-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 20a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8l-7 5V8l-7 5V4a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z"/><path d="M17 18h1"/><path d="M12 18h1"/><path d="M7 18h1"/></svg>
+          </div>
+          <span class="industry-name">Manufacturing</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Strip -->
+  <section class="cta" id="contact" style="padding: 0.4rem 0;"></section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <a href="index.html" class="footer-logo"><img src="mechton%20logo.png" alt="Mechton Logo"></a>
+          <p class="footer-desc">Your trusted international partner for premium heavy equipment and machinery from the world's leading brands.</p>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-title">QUICK LINKS</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="brands.html">Brands</a></li>
+            <li><a href="store.html">Store</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-title">CONTACT</h4>
+          <ul class="footer-contact">
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+              <a href="mailto:info@mechtoninternational.com">info@mechtoninternational.com</a>
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+              <span>Meydan Grandstand, 6th floor,<br>Meydan Road, Nad Al Sheba,<br>Dubai, U.A.E.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Mechton International. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <div id="google_translate_element" style="display:none;"></div>
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'ar,en', autoDisplay: false}, 'google_translate_element');
+    }
+  </script>
+  <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  <script src="script.js"></script>
+  <!-- WhatsApp Floating Button -->
+  <a href="https://wa.me/971000000000" target="_blank" rel="noopener noreferrer" class="whatsapp-float" aria-label="Chat on WhatsApp">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor">
+      <path d="M16 0C7.163 0 0 7.163 0 16c0 2.82.737 5.46 2.027 7.754L0 32l8.485-2.003A15.94 15.94 0 0 0 16 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm8.29 22.594c-.343.964-2.01 1.84-2.755 1.957-.746.117-1.68.166-2.711-.17a24.8 24.8 0 0 1-2.456-.908C12.644 21.9 10.1 18.9 9.9 18.646c-.2-.253-1.629-2.165-1.629-4.133s1.032-2.934 1.398-3.334c.366-.4.8-.5 1.066-.5.267 0 .533.003.767.014.246.012.577-.093.903.689.342.807 1.16 2.775 1.262 2.975.1.2.167.434.033.7-.133.267-.2.434-.4.667-.2.234-.42.522-.6.7-.2.2-.407.416-.175.816.233.4 1.033 1.703 2.216 2.756 1.522 1.356 2.806 1.777 3.206 1.977.4.2.633.167.867-.1.233-.267 1-1.167 1.267-1.567.267-.4.533-.333.9-.2.367.133 2.333 1.1 2.733 1.3.4.2.667.3.767.467.1.167.1.966-.243 1.9z"/>
+    </svg>
+    <span class="whatsapp-label">Chat with us</span>
+  </a>
+
+</body>
+</html>

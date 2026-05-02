@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brands | Mechton International</title>
+  <meta name="description" content="Explore the world-class brands and OEM partners that Mechton International represents globally.">
+  <link rel="icon" href="favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* ── Brands Page Specific Styles ── */
+    .brands-hero {
+      position: relative;
+      min-height: 420px;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
+      background: #0a0a0a;
+    }
+    .brands-hero .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('assets/factory.jpg');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.3;
+    }
+    .brands-hero .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(0,0,0,0.85) 0%, rgba(230,100,0,0.15) 100%);
+    }
+
+    /* Filter Bar */
+    .filter-bar {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 3rem;
+    }
+    .filter-btn {
+      padding: 0.5rem 1.4rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.15);
+      background: rgba(255,255,255,0.04);
+      color: #aaa;
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      letter-spacing: 0.03em;
+    }
+    .filter-btn:hover,
+    .filter-btn.active {
+      background: var(--primary, #e66400);
+      border-color: var(--primary, #e66400);
+      color: #fff;
+    }
+
+    /* Brand Grid */
+    .brands-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1.5rem;
+    }
+    .brand-card {
+      background: #111;
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 12px;
+      padding: 1.5rem 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.75rem;
+      cursor: pointer;
+      transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      height: 100%;
+    }
+    .brand-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(230,100,0,0.06), transparent);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .brand-card:hover {
+      transform: translateY(-6px);
+      border-color: rgba(230,100,0,0.4);
+      box-shadow: 0 12px 40px rgba(230,100,0,0.12);
+    }
+    .brand-card:hover::before { opacity: 1; }
+
+    .brand-logo-wrap {
+      width: 100%;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      filter: brightness(0.7) grayscale(0.4);
+      transition: filter 0.3s ease;
+      margin-bottom: 0.5rem;
+    }
+    .brand-logo-img {
+      max-width: 90px;
+      max-height: 35px;
+      object-fit: contain;
+      width: auto;
+      height: auto;
+    }
+    .brand-card:hover .brand-logo-wrap { filter: brightness(1) grayscale(0); }
+
+    .brand-logo-text {
+      font-size: 1.1rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: #fff;
+      text-align: center;
+      line-height: 1.1;
+    }
+    .brand-name {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #ddd;
+      text-align: center;
+      letter-spacing: 0.03em;
+    }
+    .brand-category-tag {
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--primary, #e66400);
+      background: rgba(230,100,0,0.1);
+      border: 1px solid rgba(230,100,0,0.2);
+      border-radius: 999px;
+      padding: 0.2rem 0.75rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    /* Partner Strip */
+    .partner-strip {
+      background: #0d0d0d;
+      border-top: 1px solid rgba(255,255,255,0.07);
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      padding: 3rem 0;
+    }
+    .partner-strip-text {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+    .partner-strip-text p {
+      color: #aaa;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+    .marquee-wrapper {
+      overflow: hidden;
+      position: relative;
+    }
+    .marquee-wrapper::before,
+    .marquee-wrapper::after {
+      content: '';
+      position: absolute;
+      top: 0; bottom: 0;
+      width: 120px;
+      z-index: 2;
+    }
+    .marquee-wrapper::before { left: 0; background: linear-gradient(to right, #0d0d0d, transparent); }
+    .marquee-wrapper::after  { right: 0; background: linear-gradient(to left, #0d0d0d, transparent); }
+    .marquee-track {
+      display: flex;
+      gap: 3rem;
+      width: max-content;
+      animation: marquee 28s linear infinite;
+    }
+    .marquee-track:hover { animation-play-state: paused; }
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+    .marquee-item {
+      font-size: 1.1rem;
+      font-weight: 800;
+      color: rgba(255,255,255,0.15);
+      white-space: nowrap;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      transition: color 0.3s;
+    }
+    .marquee-item:hover { color: var(--primary, #e66400); }
+
+    /* CTA Section */
+    .brands-cta {
+      background: linear-gradient(135deg, #111 0%, #1a0d00 100%);
+      border-top: 1px solid rgba(230,100,0,0.2);
+      text-align: center;
+      padding: 5rem 0;
+    }
+    .brands-cta h2 {
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
+      font-weight: 800;
+      margin-bottom: 1rem;
+      color: #fff;
+    }
+    .brands-cta p {
+      color: #aaa;
+      max-width: 480px;
+      margin: 0 auto 2rem;
+      line-height: 1.7;
+    }
+
+    /* Hidden brand cards (for filter) */
+    .brand-card.hidden-card {
+      display: none;
+    }
+
+    /* ── Subsection Styles ── */
+    .subsection-header {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      margin-bottom: 2.5rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+    @media (min-width: 768px) {
+      .subsection-header {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        gap: 2rem;
+      }
+    }
+    .subsection-label-wrap {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+    }
+    .subsection-pill {
+      font-size: 0.75rem;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      border-radius: 8px;
+      padding: 0.5rem 1rem;
+      flex-shrink: 0;
+    }
+    .oe-pill {
+      background: rgba(255,127,17,0.15);
+      color: var(--primary, #ff7f11);
+      border: 1px solid rgba(255,127,17,0.35);
+    }
+    .oem-pill {
+      background: rgba(59,130,246,0.12);
+      color: #60a5fa;
+      border: 1px solid rgba(59,130,246,0.3);
+    }
+    .subsection-desc {
+      color: #888;
+      font-size: 0.9rem;
+      line-height: 1.6;
+      max-width: 420px;
+    }
+
+    /* ── Divider between sections ── */
+    .brands-divider {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      padding: 0 2rem;
+      background: #0a0a0a;
+    }
+    .brands-divider-line {
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(to right, transparent, rgba(255,255,255,0.1), transparent);
+    }
+    .brands-divider-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.2);
+      white-space: nowrap;
+      padding: 1.25rem 0;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <header id="navbar" class="navbar">
+    <div class="container navbar-container">
+      <a href="index.html" class="logo"><img src="mechton%20logo.png" alt="Mechton Logo"></a>
+      <nav class="desktop-nav">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="brands.html" class="nav-link text-primary">Brands</a>
+        <a href="store.html" class="nav-link">Store</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+      <button id="translate-btn" class="translate-btn" onclick="toggleLanguage()">عربي</button>
+      <button id="mobile-menu-btn" class="mobile-menu-btn">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+      </button>
+    </div>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="mobile-menu hidden">
+      <a href="index.html" class="mobile-link">Home</a>
+      <a href="about.html" class="mobile-link">About</a>
+      <a href="brands.html" class="mobile-link text-primary">Brands</a>
+      <a href="store.html" class="mobile-link">Store</a>
+      <a href="contact.html" class="mobile-link">Contact</a>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="brands-hero page-hero">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="container hero-content">
+      <h1 class="hero-headline fade-up">
+        Our Brand <br><span class="text-primary">Partners</span>
+      </h1>
+      <p class="hero-subtext fade-up delay-1">
+        We represent 25+ world-class OEM manufacturers — delivering the best equipment brands across every industry we serve.
+      </p>
+    </div>
+  </section>
+
+  <!-- Marquee / Rolling Strip -->
+  <div class="partner-strip">
+    <div class="partner-strip-text"><p>Trusted by industry leaders worldwide</p></div>
+    <div class="marquee-wrapper">
+      <div class="marquee-track">
+        <span class="marquee-item">Caterpillar</span>
+        <span class="marquee-item">Komatsu</span>
+        <span class="marquee-item">Cummins</span>
+        <span class="marquee-item">Volvo</span>
+        <span class="marquee-item">Perkins</span>
+        <span class="marquee-item">JCB</span>
+        <span class="marquee-item">Liebherr</span>
+        <span class="marquee-item">Hitachi</span>
+        <span class="marquee-item">John Deere</span>
+        <span class="marquee-item">Doosan</span>
+        <span class="marquee-item">Terex</span>
+        <span class="marquee-item">Atlas Copco</span>
+        <!-- Duplicate for seamless loop -->
+        <span class="marquee-item">Caterpillar</span>
+        <span class="marquee-item">Komatsu</span>
+        <span class="marquee-item">Cummins</span>
+        <span class="marquee-item">Volvo</span>
+        <span class="marquee-item">Perkins</span>
+        <span class="marquee-item">JCB</span>
+        <span class="marquee-item">Liebherr</span>
+        <span class="marquee-item">Hitachi</span>
+        <span class="marquee-item">John Deere</span>
+        <span class="marquee-item">Doosan</span>
+        <span class="marquee-item">Terex</span>
+        <span class="marquee-item">Atlas Copco</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── OE BRANDS Section ── -->
+  <section id="oe-brands" class="section py-24" style="background:#0a0a0a;">
+    <div class="container">
+      <div class="subsection-header">
+        <div class="subsection-label-wrap">
+          <span class="subsection-pill oe-pill">OE</span>
+          <div>
+            <p class="section-label">Original Equipment</p>
+            <h2 class="section-title" style="margin-bottom:0;">OE <span class="text-primary">Brands</span></h2>
+          </div>
+        </div>
+        <p class="subsection-desc">Industry-leading original equipment manufacturers whose machines and systems we supply globally.</p>
+      </div>
+      <div class="brands-grid oe-brands-grid">
+        <div class="brand-card"><div class="brand-logo-wrap"><img src="assets/oe-logos/caterpillar.png" alt="Caterpillar" class="brand-logo-img"></div><span class="brand-name">Caterpillar</span></div>
+        <div class="brand-card"><div class="brand-logo-wrap"><img src="assets/oe-logos/hyundai.png" alt="Hyundai" class="brand-logo-img"></div><span class="brand-name">Hyundai</span></div>
+        <div class="brand-card"><div class="brand-logo-wrap"><img src="assets/oe-logos/hitachi.jpeg" alt="Hitachi" class="brand-logo-img"></div><span class="brand-name">Hitachi</span></div>
+        <div class="brand-card"><div class="brand-logo-wrap"><img src="assets/oe-logos/volvo.png" alt="Volvo" class="brand-logo-img"></div><span class="brand-name">Volvo</span></div>
+        <div class="brand-card"><div class="brand-logo-wrap"><img src="assets/oe-logos/volvo-penta.png" alt="Volvo Penta" class="brand-logo-img"></div><span class="brand-name">Volvo Penta</span></div>
+        <div class="brand-card"><div class="brand-logo-wrap"><img src="assets/oe-logos/komatsu.png" alt="Komatsu" class="brand-logo-img"></div><span class="brand-name">Komatsu</span></div>
+        <div class="brand-card"><div class="brand-logo-wrap"><img src="assets/oe-logos/liugong.png" alt="LiuGong" class="brand-logo-img"></div><span class="brand-name">LiuGong</span></div>
+        <div class="brand-card"><div class="brand-logo-wrap"><img src="assets/oe-logos/sany.png" alt="Sany" class="brand-logo-img"></div><span class="brand-name">Sany</span></div>
+        <div class="brand-card"><div class="brand-logo-wrap"><img src="assets/oe-logos/xcmg.png" alt="XCMG" class="brand-logo-img"></div><span class="brand-name">XCMG</span></div>
+        <div class="brand-card"><div class="brand-logo-wrap"><img src="assets/oe-logos/mtu.png" alt="MTU" class="brand-logo-img"></div><span class="brand-name">MTU</span></div>
+        <div class="brand-card"><div class="brand-logo-wrap"><img src="assets/oe-logos/deutz.png" alt="Deutz" class="brand-logo-img"></div><span class="brand-name">Deutz</span></div>
+        <div class="brand-card"><div class="brand-logo-wrap"><img src="assets/oe-logos/yanmar.jpeg" alt="Yanmar" class="brand-logo-img"></div><span class="brand-name">Yanmar</span></div>
+        <div class="brand-card"><div class="brand-logo-wrap"><img src="assets/oe-logos/jcb.png" alt="JCB" class="brand-logo-img"></div><span class="brand-name">JCB</span></div>
+        <div class="brand-card"><div class="brand-logo-wrap"><img src="assets/oe-logos/kubota.png" alt="Kubota" class="brand-logo-img"></div><span class="brand-name">Kubota</span></div>
+        <div class="brand-card"><div class="brand-logo-wrap"><img src="assets/oe-logos/cummins.png" alt="Cummins" class="brand-logo-img"></div><span class="brand-name">Cummins</span></div>
+        <div class="brand-card"><div class="brand-logo-wrap"><img src="assets/oe-logos/john-deere.png" alt="John Deere" class="brand-logo-img"></div><span class="brand-name">John Deere</span></div>
+        <div class="brand-card"><div class="brand-logo-wrap"><img src="assets/oe-logos/perkins.png" alt="Perkins" class="brand-logo-img"></div><span class="brand-name">Perkins</span></div>
+        <div class="brand-card"><div class="brand-logo-wrap"><img src="assets/oe-logos/man.png" alt="MAN" class="brand-logo-img"></div><span class="brand-name">MAN</span></div>
+        <div class="brand-card"><div class="brand-logo-wrap"><img src="assets/oe-logos/scania.png" alt="Scania" class="brand-logo-img"></div><span class="brand-name">Scania</span></div>
+        <div class="brand-card"><div class="brand-logo-wrap"><img src="assets/oe-logos/isuzu.png" alt="Isuzu" class="brand-logo-img"></div><span class="brand-name">Isuzu</span></div>
+        <div class="brand-card"><div class="brand-logo-wrap"><img src="assets/oe-logos/mercedes-benz.jpeg" alt="Mercedes-Benz" class="brand-logo-img"></div><span class="brand-name">Mercedes-Benz</span></div>
+        <div class="brand-card"><div class="brand-logo-wrap"><img src="assets/oe-logos/sinotruck.jpeg" alt="Sinotruck" class="brand-logo-img"></div><span class="brand-name">Sinotruck</span></div>
+        <div class="brand-card"><div class="brand-logo-wrap"><img src="assets/oe-logos/detroit-diesel.png" alt="Detroit Diesel" class="brand-logo-img"></div><span class="brand-name">Detroit Diesel</span></div>
+        <div class="brand-card"><div class="brand-logo-wrap"><img src="assets/oe-logos/kirloskar.png" alt="Kirloskar" class="brand-logo-img"></div><span class="brand-name">Kirloskar</span></div>
+        <div class="brand-card"><div class="brand-logo-wrap"><img src="assets/oe-logos/atlas-copco.jpeg" alt="Atlas Copco" class="brand-logo-img"></div><span class="brand-name">Atlas Copco</span></div>
+        <div class="brand-card"><div class="brand-logo-wrap"><img src="assets/oe-logos/kobelco.png" alt="Kobelco" class="brand-logo-img"></div><span class="brand-name">Kobelco</span></div>
+        <div class="brand-card"><div class="brand-logo-wrap"><img src="assets/oe-logos/doosan.png" alt="Doosan" class="brand-logo-img"></div><span class="brand-name">Doosan</span></div>
+        <div class="brand-card"><div class="brand-logo-wrap"><img src="assets/oe-logos/case.jpeg" alt="Case" class="brand-logo-img"></div><span class="brand-name">Case</span></div>
+        <div class="brand-card"><div class="brand-logo-wrap"><img src="assets/oe-logos/bobcat.jpeg" alt="Bobcat" class="brand-logo-img"></div><span class="brand-name">Bobcat</span></div>
+        <div class="brand-card"><div class="brand-logo-wrap"><img src="assets/oe-logos/soilmec.png" alt="Soilmec" class="brand-logo-img"></div><span class="brand-name">Soilmec</span></div>
+        <div class="brand-card"><div class="brand-logo-wrap"><img src="assets/oe-logos/cat-mwm.png" alt="CAT MWM" class="brand-logo-img"></div><span class="brand-name">CAT MWM</span></div>
+        <div class="brand-card"><div class="brand-logo-wrap"><img src="assets/oe-logos/wartsila.png" alt="Wärtsilä" class="brand-logo-img"></div><span class="brand-name">Wärtsilä</span></div>
+        <div class="brand-card"><div class="brand-logo-wrap"><img src="assets/oe-logos/kawasaki.jpeg" alt="Kawasaki" class="brand-logo-img"></div><span class="brand-name">Kawasaki</span></div>
+        <div class="brand-card"><div class="brand-logo-wrap"><img src="assets/oe-logos/liebherr.png" alt="Liebherr" class="brand-logo-img"></div><span class="brand-name">Liebherr</span></div>
+        <div class="brand-card"><div class="brand-logo-wrap"><img src="assets/oe-logos/man-bandw.jpeg" alt="MAN B&amp;W" class="brand-logo-img"></div><span class="brand-name">MAN B&amp;W</span></div>
+        <div class="brand-card"><div class="brand-logo-wrap"><img src="assets/oe-logos/guascor.jpeg" alt="Guascor" class="brand-logo-img"></div><span class="brand-name">Guascor</span></div>
+      </div>
+
+
+  <!-- Divider -->
+  <div class="brands-divider">
+    <div class="brands-divider-line"></div>
+    <span class="brands-divider-label">OEM Partners</span>
+    <div class="brands-divider-line"></div>
+  </div>
+
+  <!-- ── OEM BRANDS Section ── -->
+  <section id="oem-brands" class="section py-24" style="background:#080808;">
+    <div class="container">
+      <div class="subsection-header">
+        <div class="subsection-label-wrap">
+          <span class="subsection-pill oem-pill">OEM</span>
+          <div>
+            <p class="section-label">Original Equipment Manufacturer</p>
+            <h2 class="section-title" style="margin-bottom:0;">OEM <span class="text-primary">Brands</span></h2>
+          </div>
+        </div>
+        <p class="subsection-desc">Trusted aftermarket and OEM parts manufacturers delivering precision-engineered components worldwide.</p>
+      </div>
+      <div class="brands-grid">
+        <div class="brand-card"><div class="brand-logo-wrap"><span class="brand-logo-text" style="color:#E2001A;">Cummins</span></div><span class="brand-name">Cummins</span><span class="brand-category-tag">Engine &amp; Power</span></div>
+        <div class="brand-card"><div class="brand-logo-wrap"><span class="brand-logo-text" style="color:#00A850;">Perkins</span></div><span class="brand-name">Perkins</span><span class="brand-category-tag">Engine &amp; Power</span></div>
+        <div class="brand-card"><div class="brand-logo-wrap"><span class="brand-logo-text" style="color:#005EB8;">Atlas<br>Copco</span></div><span class="brand-name">Atlas Copco</span><span class="brand-category-tag">Engine &amp; Power</span></div>
+        <div class="brand-card"><div class="brand-logo-wrap"><span class="brand-logo-text" style="color:#CC0000;">MTU</span></div><span class="brand-name">MTU</span><span class="brand-category-tag">Engine &amp; Power</span></div>
+        <div class="brand-card"><div class="brand-logo-wrap"><span class="brand-logo-text" style="color:#aaa;">Kolbenschmidt</span></div><span class="brand-name">Kolbenschmidt</span><span class="brand-category-tag">Engine Parts</span></div>
+        <div class="brand-card"><div class="brand-logo-wrap"><span class="brand-logo-text" style="color:#bbb;">Interstate McBee</span></div><span class="brand-name">Interstate McBee</span><span class="brand-category-tag">Engine Parts</span></div>
+        <div class="brand-card"><div class="brand-logo-wrap"><span class="brand-logo-text" style="color:#ddd;">Mahle</span></div><span class="brand-name">Mahle</span><span class="brand-category-tag">Engine Parts</span></div>
+        <div class="brand-card"><div class="brand-logo-wrap"><span class="brand-logo-text" style="color:#ccc;">FP Diesel</span></div><span class="brand-name">FP Diesel</span><span class="brand-category-tag">Engine Parts</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="brands-cta">
+    <div class="container">
+      <h2>Can't find a specific brand?</h2>
+      <p>We source from an extensive global network. Contact us and our team will find exactly what you need.</p>
+      <a href="contact.html" class="btn btn-primary">Get In Touch</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <a href="index.html" class="footer-logo"><img src="mechton%20logo.png" alt="Mechton Logo"></a>
+          <p class="footer-desc">Your trusted international partner for premium heavy equipment and machinery from the world's leading brands.</p>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-title">QUICK LINKS</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="brands.html">Brands</a></li>
+            <li><a href="store.html">Store</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4 class="footer-title">CONTACT</h4>
+          <ul class="footer-contact">
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+              <a href="mailto:info@mechtoninternational.com">info@mechtoninternational.com</a>
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="text-primary"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+              <span>Meydan Grandstand, 6th floor,<br>Meydan Road, Nad Al Sheba,<br>Dubai, U.A.E.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Mechton International. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <div id="google_translate_element" style="display:none;"></div>
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'ar,en', autoDisplay: false}, 'google_translate_element');
+    }
+  </script>
+  <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  <script src="script.js"></script>
+
+  <script>
+    // Filter functionality
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const brandCards = document.querySelectorAll('.brand-card');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        const filter = btn.dataset.filter;
+        brandCards.forEach(card => {
+          if (filter === 'all' || card.dataset.category === filter) {
+            card.classList.remove('hidden-card');
+          } else {
+            card.classList.add('hidden-card');
+          }
+        });
+      });
+    });
+  </script>
+  <!-- WhatsApp Floating Button -->
+  <a href="https://wa.me/971000000000" target="_blank" rel="noopener noreferrer" class="whatsapp-float" aria-label="Chat on WhatsApp">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor">
+      <path d="M16 0C7.163 0 0 7.163 0 16c0 2.82.737 5.46 2.027 7.754L0 32l8.485-2.003A15.94 15.94 0 0 0 16 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm8.29 22.594c-.343.964-2.01 1.84-2.755 1.957-.746.117-1.68.166-2.711-.17a24.8 24.8 0 0 1-2.456-.908C12.644 21.9 10.1 18.9 9.9 18.646c-.2-.253-1.629-2.165-1.629-4.133s1.032-2.934 1.398-3.334c.366-.4.8-.5 1.066-.5.267 0 .533.003.767.014.246.012.577-.093.903.689.342.807 1.16 2.775 1.262 2.975.1.2.167.434.033.7-.133.267-.2.434-.4.667-.2.234-.42.522-.6.7-.2.2-.407.416-.175.816.233.4 1.033 1.703 2.216 2.756 1.522 1.356 2.806 1.777 3.206 1.977.4.2.633.167.867-.1.233-.267 1-1.167 1.267-1.567.267-.4.533-.333.9-.2.367.133 2.333 1.1 2.733 1.3.4.2.667.3.767.467.1.167.1.966-.243 1.9z"/>
+    </svg>
+    <span class="whatsapp-label">Chat with us</span>
+  </a>
+</body>
+</html>

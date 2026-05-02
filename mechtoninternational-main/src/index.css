@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 4.3%; /* #0B0B0B */
+    --foreground: 0 0% 100%; /* #FFFFFF */
+
+    --card: 0 0% 7%;
+    --card-foreground: 0 0% 100%;
+
+    --popover: 0 0% 7%;
+    --popover-foreground: 0 0% 100%;
+
+    --primary: 358 100% 45%; /* #E10600 */
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 0 0% 12%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 0 0% 15%;
+    --muted-foreground: 0 0% 70%; /* #B3B3B3 */
+
+    --accent: 358 100% 45%; /* #E10600 */
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 18%;
+    --input: 0 0% 18%;
+    --ring: 358 100% 45%;
+
+    --radius: 0.25rem;
+
+    --sidebar-background: 0 0% 5%;
+    --sidebar-foreground: 0 0% 100%;
+    --sidebar-primary: 358 100% 45%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 0 0% 12%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 0 0% 18%;
+    --sidebar-ring: 358 100% 45%;
+
+    /* Custom tokens */
+    --industrial-red: 358 100% 45%; /* #E10600 */
+    --industrial-dark: 0 0% 4.3%; /* #0B0B0B */
+    --industrial-grey: 0 0% 70%; /* #B3B3B3 */
+    --glow-red: 0 0 20px hsl(358 100% 45% / 0.4);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-montserrat antialiased;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .text-gradient-red {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-red-600 to-red-400;
+  }
+
+  .glow-red {
+    box-shadow: 0 0 20px hsl(1 100% 44% / 0.4), 0 0 60px hsl(1 100% 44% / 0.1);
+  }
+
+  .glow-red-subtle {
+    box-shadow: 0 0 10px hsl(1 100% 44% / 0.2);
+  }
+
+  .border-glow-red {
+    @apply border border-primary/0 transition-all duration-500;
+  }
+
+  .border-glow-red:hover {
+    @apply border-primary;
+    box-shadow: 0 0 15px hsl(1 100% 44% / 0.3);
+  }
+
+  .parallax-slow {
+    transform: translateZ(-1px) scale(2);
+  }
+
+  /* Hide scrollbar but keep scroll functionality */
+  .scrollbar-none {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-none::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Mobile bottom nav glass */
+  .mobile-bottom-nav {
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+}
