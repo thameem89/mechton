@@ -120,7 +120,7 @@ a {
   align-items: center;
 }
 
-.logo img { height: 80px; width: auto; filter: brightness(0) invert(1); }
+.logo img { height: 80px; width: auto; filter: brightness(0) invert(1); -webkit-filter: brightness(0) invert(1); }
 
 .desktop-nav {
   display: none;
@@ -760,6 +760,7 @@ html[dir="rtl"] .footer-grid { text-align: right; }
   margin-bottom: 1.5rem;
   display: block;
   filter: brightness(0) invert(1);
+  -webkit-filter: brightness(0) invert(1);
 }
 
 .footer-desc {
