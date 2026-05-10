@@ -755,7 +755,7 @@ html[dir="rtl"] .footer-grid { text-align: right; }
 }
 
 .footer-logo img {
-  height: 40px;
+  height: 80px;
   width: auto;
   margin-bottom: 1.5rem;
   display: block;
