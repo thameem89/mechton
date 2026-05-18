@@ -150,10 +150,14 @@ document.addEventListener('DOMContentLoaded', () => {
     nextBtn.addEventListener('click', () => updateCarousel('next'));
     prevBtn.addEventListener('click', () => updateCarousel('prev'));
     
-    // Reset on resize
+    // Reset on resize (only if width changes, to avoid mobile address bar toggle bug)
+    let windowWidth = window.innerWidth;
     window.addEventListener('resize', () => {
-      scrollPosition = 0;
-      track.style.transform = `translateX(0)`;
+      if (window.innerWidth !== windowWidth) {
+        windowWidth = window.innerWidth;
+        scrollPosition = 0;
+        track.style.transform = `translateX(0)`;
+      }
     });
   }
 });
