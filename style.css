@@ -514,6 +514,14 @@ a {
   .carousel-nav { margin-top: 0; }
 }
 
+.carousel-nav-bottom {
+  justify-content: center;
+  margin-top: 2.5rem;
+}
+@media (min-width: 768px) {
+  .carousel-nav-bottom { margin-top: 3.5rem; }
+}
+
 .nav-btn {
   width: 2.75rem;
   height: 2.75rem;
